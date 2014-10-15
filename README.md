@@ -1,4 +1,0 @@
-atilimcetin.github.io
-=====================
-
-website
