@@ -1,0 +1,139 @@
+/*** Global demo stylesheet ***/
+
+/* Reset
+========================================================================================================== */
+html,body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	text-align: left;
+	background: transparent;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+
+
+/* Global
+========================================================================================================== */
+body {
+	background: url(../images/noise_light-grey.jpg);
+	font-family: 'Helvetica Neue', arial, sans-serif;
+	font-weight: 200;
+}
+
+h1 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 4em;
+	font-weight: 400;
+	margin: 0 0 20px;
+	text-align: center;
+	text-shadow: 1px 1px 0 #fff, 2px 2px 0 #bbb;
+}
+
+a {
+	color: #08c;
+}
+a:hover {
+	text-decoration: none;
+}
+
+hr {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #fff;
+	margin: 25px 0;
+	clear: both;
+}
+
+.centered {
+	text-align: center;
+}
+.clear {
+	clear: both;
+}
+
+/* Header
+========================================================================================================== */
+.global-header {
+	width: 100%;
+	background: #444;
+	overflow: auto;
+}
+.global-header p {
+	display: inline-block;
+	color: #999;
+	font-size: .85em;
+}
+.global-header p.brand {
+	float: left;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 1.2em;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+.global-header p.brand strong {
+	font-weight: 700;
+}
+.global-header p.brand a {
+	display: inline-block;
+	color: #cf6;
+	margin: 11px 0 0;
+	text-decoration: none;
+	text-shadow: 1px 1px 1px #333;
+}
+.global-header p.brand a:hover {
+	color: #fff;
+}
+.global-header p.back-to-article {
+	float: right;
+}
+.global-header p.back-to-article a {
+	display: inline-block;
+	padding: 15px;
+	background: #000;
+	color: #fff;
+	text-decoration: none;
+}
+.global-header p.back-to-article a:hover {
+	background: #08c;
+}
+
+/* Content
+========================================================================================================== */
+.wrapper {
+	width: 100%;
+	padding: 30px 0;
+}
+.container {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/* Media Queries
+========================================================================================================== */
+@media (max-width: 1199px) {
+	.container {
+		width: auto;
+		padding: 0 10px;
+	}
+}
+@media (max-width: 992px) {
+	h1 {
+		font-size: 3em;
+	}
+}
+@media (max-width: 768px) {
+	h1 {
+		font-size: 2em;
+	}
+}
+@media (max-width: 480px) {
+}
