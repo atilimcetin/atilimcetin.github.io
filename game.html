@@ -48,7 +48,7 @@
         }
 
         ready(() => {
-            canvas = document.querySelector("#canvas");
+            const canvas = document.querySelector("#canvas");
 
             fitWithAspectRatio(canvas, 1.33333);
             window.addEventListener("resize", () => {
@@ -60,9 +60,7 @@
 
     <script async src=snes9x_libretro_emscripten.js></script>    
 
-
-
-    <body>
+    <body style="background-color: #111111;">
         <div id="parent">
             <canvas id="canvas" style="background-color: black;">
             </canvas>
