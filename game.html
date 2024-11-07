@@ -1,0 +1,72 @@
+<html>
+    <style>
+        * { margin: 0; box-sizing: border-box; }
+
+        #parent { 
+            width: 100vw;
+            height: 100vh;
+            background-color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <script>
+        function fitWithAspectRatio(element, aspect) {
+            const parent = element.parentElement;
+            const pw = parent.clientWidth;
+            const ph = parent.clientHeight;
+
+            const isSwap = pw > ph * aspect;
+            const w = isSwap ? ph * aspect : pw;
+            const h = isSwap ? ph : pw / aspect;
+
+            const wa = Math.floor(w / 4) * 4;
+            const ha = Math.floor(h / 4) * 4;
+
+            if (wa !== element.width || ha !== element.height) {
+                element.style.width = `${wa}px`;
+                element.style.height = `${ha}px`;
+
+                element.width = wa;
+                element.height = ha;
+
+                return true;
+            }
+
+            return false;
+        }
+
+        // https://youmightnotneedjquery.com/#ready
+        function ready(fn) {
+            if (document.readyState !== 'loading') {
+                fn();
+            } else {
+                document.addEventListener('DOMContentLoaded', fn);
+            }
+        }
+
+        ready(() => {
+            canvas = document.querySelector("#canvas");
+
+            fitWithAspectRatio(canvas, 1.33333);
+            window.addEventListener("resize", () => {
+                fitWithAspectRatio(canvas, 1.33333);
+            });
+        });
+
+    </script>
+
+    <script async src=snes9x_libretro_emscripten.js></script>    
+
+
+
+    <body>
+        <div id="parent">
+            <canvas id="canvas" style="background-color: black;">
+            </canvas>
+        </div>
+    </body>
+
+</html>
