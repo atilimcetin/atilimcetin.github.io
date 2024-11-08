@@ -13,6 +13,10 @@
     </style>
 
     <script>
+        var Module = {
+            'arguments': Array.from(new URL(document.location.href).searchParams).flatMap(([key, value]) => [key, value])
+        };
+
         function fitWithAspectRatio(element, aspect) {
             const parent = element.parentElement;
             const pw = parent.clientWidth;
