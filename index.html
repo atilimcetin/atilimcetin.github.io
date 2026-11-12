@@ -11,6 +11,10 @@
     small, footer { color: #999; }
     footer { margin-top: 32px; font-size: 13px; }
     li { margin: 2px 0; }
+    table { border-collapse: collapse; font-size: 14px; width: 100%; }
+    th, td { padding: 3px 8px; border-bottom: 1px solid #333; text-align: right; white-space: nowrap; }
+    th:first-child, td:first-child { text-align: left; white-space: normal; }
+    .scroll { overflow-x: auto; }
   </style>
 </head>
 <body>
@@ -30,6 +34,31 @@
 
   <h2>Scenes</h2>
   <ul id="scenes"></ul>
+
+  <h2>Frame times</h2>
+  <p><small>Average frame time in milliseconds of the native Metal renderer (C++, not the web player) on a MacBook
+    with an Apple M5 Max, rendering 3200 px on the long side with the camera moving (temporal reuse), 300 frames; the
+    fastest of several runs, since the GPU slows down as it heats up.</small></p>
+  <div class="scroll"><table>
+    <thead><tr><th>Model</th><th>Gaussians</th><th>Resolution</th><th>Fast (1 spp)</th><th>Quality (4x MSAA)</th></tr></thead>
+    <tbody>
+      <tr><td>Cluster fly</td><td>0.98 M</td><td>2133 × 3200</td><td>2.9</td><td>5.0</td></tr>
+      <tr><td>Strawberry</td><td>0.58 M</td><td>2133 × 3200</td><td>2.7</td><td>4.5</td></tr>
+      <tr><td>Raspberry</td><td>0.56 M</td><td>2133 × 3200</td><td>3.6</td><td>6.2</td></tr>
+      <tr><td>Blackberry</td><td>0.64 M</td><td>2133 × 3200</td><td>2.0</td><td>3.3</td></tr>
+      <tr><td>Blueberry</td><td>0.41 M</td><td>2133 × 3200</td><td>2.0</td><td>3.4</td></tr>
+      <tr><td>Grape</td><td>0.35 M</td><td>2133 × 3200</td><td>2.2</td><td>3.6</td></tr>
+      <tr><td>Common daisy (from photos)</td><td>0.88 M</td><td>2133 × 3200</td><td>3.6</td><td>6.4</td></tr>
+      <tr><td>Common daisy (distilled)</td><td>1.90 M</td><td>3200 × 2400</td><td>7.1</td><td>12.1</td></tr>
+      <tr><td>Bicycle</td><td>5.88 M</td><td>3200 × 2126</td><td>5.3</td><td>10.0</td></tr>
+      <tr><td>Garden</td><td>4.92 M</td><td>3200 × 2073</td><td>4.8</td><td>8.6</td></tr>
+      <tr><td>Stump</td><td>5.24 M</td><td>3200 × 2121</td><td>6.3</td><td>11.2</td></tr>
+      <tr><td>Room</td><td>1.35 M</td><td>3200 × 2132</td><td>4.3</td><td>7.6</td></tr>
+      <tr><td>Counter</td><td>1.08 M</td><td>3200 × 2133</td><td>5.2</td><td>9.1</td></tr>
+      <tr><td>Kitchen</td><td>1.56 M</td><td>3200 × 2135</td><td>4.9</td><td>8.8</td></tr>
+      <tr><td>Bonsai</td><td>1.07 M</td><td>3200 × 2133</td><td>3.9</td><td>6.8</td></tr>
+    </tbody>
+  </table></div>
 
   <footer>
     <p>© 2026 Atilim Cetin. The player and the trained models are my own work, except as noted below.</p>
