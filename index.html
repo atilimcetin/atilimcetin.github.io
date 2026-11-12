@@ -15,6 +15,10 @@
 </head>
 <body>
   <h1>Gaussian Splats</h1>
+  <p>The models are trained with SteadySplats' training algorithm, which lowers the noise of stochastic sampling,
+    and most of them with Mip-Splatting's 3D filter (with AAA area normalization), which keeps them free of aliasing
+    when zoomed out. Rendering is done by my own MSAA algorithm on top of StochasticSplats: sorting-free stochastic
+    transparency, with temporal reuse while the camera moves and accumulation while it is still.</p>
   <p><small>Each model opens in the WebGPU player: <i>fast</i> renders 1 sample per pixel, <i>quality</i> 4x MSAA.
     Drag to orbit, wheel to zoom, left/right for the dataset cameras.</small></p>
 
