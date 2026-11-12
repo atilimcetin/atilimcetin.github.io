@@ -8,14 +8,47 @@
     body { margin: 0 auto; max-width: 640px; padding: 24px 16px; background: #111; color: #ddd;
            font: 15px/1.5 -apple-system, sans-serif; }
     a { color: #8cf; }
-    small { color: #999; }
+    small, footer { color: #999; }
+    footer { margin-top: 32px; font-size: 13px; }
+    li { margin: 2px 0; }
   </style>
 </head>
 <body>
   <h1>Gaussian Splats</h1>
-  <ul>
-    <li><a href="web/?model=../models/fly_mip&amp;msaa=1&amp;fullres=1">Fly, 1 sample per pixel (fast)</a></li>
-    <li><a href="web/?model=../models/fly_mip&amp;msaa=4&amp;fullres=1">Fly, 4x MSAA (quality)</a></li>
-  </ul>
+  <p><small>Each model opens in the WebGPU player: <i>fast</i> renders 1 sample per pixel, <i>quality</i> 4x MSAA.
+    Drag to orbit, wheel to zoom, left/right for the dataset cameras.</small></p>
+
+  <h2>Objects</h2>
+  <ul id="objects"></ul>
+
+  <h2>Scenes</h2>
+  <ul id="scenes"></ul>
+
+  <footer>
+    <p>© 2026 Atilim Cetin. The player and the trained models are my own work, except as noted below.</p>
+    <p>Cluster fly, strawberry, raspberry, blackberry, blueberry, grape and common daisy: trained from photos and
+      Gaussian splats by <a href="https://danybittel.ch/">Dany Bittel</a>, licensed under
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: retrained or distilled into
+      low-variance Gaussian splats, and compressed into WebP images.</p>
+    <p>Bicycle, garden, stump, room, counter, kitchen and bonsai: trained from the
+      <a href="https://jonbarron.info/mipnerf360/">Mip-NeRF 360 dataset</a> (Barron et al., CVPR 2022).</p>
+    <p>Blue noise: NVIDIA's spatiotemporal blue noise masks, under
+      <a href="assets/stbn/License.txt">NVIDIA's license</a>.</p>
+  </footer>
+
+  <script>
+    const add = (list, name, model) => {
+      const base = `web/?model=../models/${model}&fullres=1&msaa=`;
+      document.getElementById(list).insertAdjacentHTML("beforeend",
+        `<li>${name}: <a href="${base}1">fast</a> · <a href="${base}4">quality</a></li>`);
+    };
+    [["Cluster fly", "fly_mip"], ["Strawberry", "strawberry"], ["Raspberry", "raspberry"],
+     ["Blackberry", "blackberry"], ["Blueberry", "blueberry"], ["Grape", "grape"],
+     ["Common daisy (from photos)", "daisy"], ["Common daisy (distilled from the splat)", "daisy_distilled"]]
+      .forEach(([n, m]) => add("objects", n, m));
+    [["Bicycle", "bicycle"], ["Garden", "garden"], ["Stump", "stump"], ["Room", "room"],
+     ["Counter", "counter"], ["Kitchen", "kitchen"], ["Bonsai", "bonsai"]]
+      .forEach(([n, m]) => add("scenes", n, m));
+  </script>
 </body>
 </html>
