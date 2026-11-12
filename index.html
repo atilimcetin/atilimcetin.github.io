@@ -15,9 +15,10 @@
 </head>
 <body>
   <h1>Gaussian Splats</h1>
-  <p>The models are trained with SteadySplats' training algorithm, which lowers the noise of stochastic sampling,
-    and most of them with Mip-Splatting's 3D filter (with AAA area normalization), which keeps them free of aliasing
-    when zoomed out. Rendering is done by my own MSAA algorithm on top of StochasticSplats: sorting-free stochastic
+  <p>The models are trained with <a href="https://derthomy.github.io/SteadySplats/">SteadySplats</a>' training algorithm, which lowers the noise of stochastic sampling,
+    and most of them with <a href="https://niujinshuchong.github.io/mip-splatting/">Mip-Splatting</a>'s 3D filter (with
+    <a href="https://arxiv.org/abs/2504.12811">AAA-Gaussians</a>' area normalization), which keeps them free of aliasing
+    when zoomed out. Rendering is done by my own MSAA algorithm on top of <a href="https://arxiv.org/abs/2503.24366">StochasticSplats</a>: sorting-free stochastic
     transparency, with temporal reuse while the camera moves and accumulation while it is still.</p>
   <p style="color: #f55">Note: because of a problem in Safari's WebGPU, 4x MSAA (quality) runs very slowly in Safari.
     Use the fast links there, or Chrome or Firefox for quality.</p>
